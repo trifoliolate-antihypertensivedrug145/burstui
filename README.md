@@ -24,7 +24,7 @@ BurstUI provides a small TUI around common Gobuster workflows so you can switch 
 
 ## Requirements
 
-- Docker
+- 🐳 Docker
 
 OR
 
@@ -32,9 +32,7 @@ OR
 - Gobuster `3.8.2` or newer
 - A working `gobuster` binary in your `PATH`
 
-BurstUI checks Gobuster on startup and prints both the resolved path and detected version in the output panel.
-
-## Use with Docker
+## 🐳 Use with Docker
 
 ### Pull the latest image
 
@@ -55,29 +53,22 @@ docker run --rm -it \
 ```
 Make sure to save logs only to the mounted directory (for example, `/output/123.log` when using the command above).
 
-## Manual Installation
+## 🔨 Manual Installation
 
-### Install BurstUI
+### Install and build BurstUI
 
-Build from source:
-
+#### From Source Code
 ```bash
-go build -o burstui .
+git clone https://github.com/ctzisme/burstui
+cd burstui
+go mod tidy
+go build .
 ```
+#### Using Binary Releases
 
-Run directly without creating a binary first:
-
-```bash
-go run .
-```
+Download binary releases from the [releases page](https://github.com/ctzisme/burstui/releases).
 
 ### Install Gobuster with Go
-
-Install the latest Gobuster release:
-
-```bash
-go install github.com/OJ/gobuster/v3@latest
-```
 
 Install the recommended Gobuster version `v3.8.2`:
 
@@ -85,16 +76,12 @@ Install the recommended Gobuster version `v3.8.2`:
 go install github.com/OJ/gobuster/v3@v3.8.2
 ```
 
-If `GOBIN` is not set, `go install` places binaries in:
+OR
 
-```text
-$(go env GOPATH)/bin
-```
+Install the latest Gobuster release:
 
-On your machine that path is:
-
-```text
-/home/USER/go/bin
+```bash
+go install github.com/OJ/gobuster/v3@latest
 ```
 
 ### Add Gobuster to PATH
@@ -103,12 +90,6 @@ Use it immediately in the current shell:
 
 ```bash
 export PATH="$(go env GOPATH)/bin:$PATH"
-```
-
-On your machine, that is equivalent to:
-
-```bash
-export PATH="/home/USER/go/bin:$PATH"
 ```
 
 Verify that the Go-installed Gobuster is the one being used:
@@ -249,3 +230,4 @@ Default output path:
 - `scan.go`: Gobuster command construction and output streaming
 - `view.go`: TUI rendering
 - `styles.go`: Lip Gloss styles and log coloring helpers
+- `version.go`: version metadata variables for release builds
