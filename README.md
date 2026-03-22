@@ -230,6 +230,7 @@ Default output path:
 ```text
 ./burstui-output.log
 ```
+*Make sure to save logs only to the mounted directory if using Docker.*
 
 ## Project Structure
 
