@@ -25,7 +25,27 @@ Current app version: `v0.1.0`
 
 BurstUI checks Gobuster on startup and prints both the resolved path and detected version in the output panel.
 
-## Installation
+## Use with Docker
+
+### Pull the latest image
+
+```bash
+docker pull ghcr.io/ctzisme/burstui:latest
+```
+
+### Run the TUI:
+
+Run BurstUI with host wordlists mounted read-only and the current directory mounted to `/output` for saving scan logs.
+
+```bash
+docker run --rm -it \
+  -e TERM=xterm-256color \
+  -v /usr/share/wordlists:/usr/share/wordlists:ro \
+  -v "$(pwd):/output" \
+  ghcr.io/ctzisme/burstui:latest
+```
+
+## Manual Installation
 
 ### Install BurstUI
 
@@ -107,53 +127,6 @@ Then reload your shell:
 ```bash
 source ~/.bashrc
 hash -r
-```
-
-### Docker image with Go 1.26.1 and Gobuster 3.8.2
-
-This repository also includes a `Dockerfile` that packages:
-
-- Go `1.26.1`
-- Gobuster `v3.8.2`
-- BurstUI `v0.1.0`
-
-Build the image:
-
-```bash
-DOCKER_BUILDKIT=1 docker build -t burstui:0.1.0 .
-```
-
-Run the TUI:
-
-```bash
-docker run --rm -it -e TERM=xterm-256color burstui:0.1.0
-```
-
-If you want to use wordlists from the host, mount them into the container:
-
-```bash
-docker run --rm -it \
-  -e TERM=xterm-256color \
-  -v /usr/share/wordlists:/usr/share/wordlists:ro \
-  burstui:0.1.0
-```
-
-Inside the container, Gobuster is installed via:
-
-```bash
-go install github.com/OJ/gobuster/v3@v3.8.2
-```
-
-The Gobuster binary is available on `PATH` at:
-
-```text
-/go/bin/gobuster
-```
-
-The Go toolchain is available on `PATH` at:
-
-```text
-/usr/local/go/bin/go
 ```
 
 ## Usage
