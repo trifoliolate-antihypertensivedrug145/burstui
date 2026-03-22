@@ -55,16 +55,16 @@ docker run --rm -it \
 
 ## 🔨 Manual Installation
 
-### Install and build BurstUI
+### Step 1. Install and build BurstUI
 
-#### Using Go Install
+#### Option A: Using Go Install
 ```bash
 go install github.com/ctzisme/burstui@latest
 ```
 
 *OR*
 
-#### From Source Code
+#### Option B: From Source Code
 ```bash
 git clone https://github.com/ctzisme/burstui
 cd burstui
@@ -73,11 +73,11 @@ go build .
 ```
 *OR*
 
-#### Using Binary Releases
+#### Option C: Using Binary Releases
 
 Download binary releases from the [releases page](https://github.com/ctzisme/burstui/releases).
 
-### Install Gobuster with Go
+### Step 2. Install Gobuster with Go
 
 Install the recommended Gobuster version `v3.8.2`:
 
@@ -93,7 +93,7 @@ Install the latest Gobuster release:
 go install github.com/OJ/gobuster/v3@latest
 ```
 
-### Add latest Gobuster to PATH
+### Step 3: Add the latest Gobuster to PATH
 
 Use it immediately in the current shell:
 
@@ -108,7 +108,7 @@ which gobuster
 gobuster --version
 ```
 
-### Make the PATH change persistent
+### Step 4: Make the PATH change persistent
 
 For Bash, add this line to `~/.bashrc`:
 
@@ -142,9 +142,20 @@ When BurstUI starts, it will show:
 - Gobuster path from `which gobuster`
 - Gobuster version from `gobuster --version`
 
+## Controls
+
+- `↑ / ↓`: move between fields
+- `← / →` on `Mode`: switch mode
+- `→`: fill a field with its placeholder when empty
+- `Tab` / `Shift+Tab`: switch between form and result pane
+- `Enter` on `Browse Wordlist`: open the wordlist picker
+- `Enter` on `Start Scan`: run Gobuster
+- `Enter` on `Output Log File`: save logs after a scan completes
+- `ctrl+c`: quit
+
 ## Modes
 
-### `dir`
+### `dir` (Directory Mode)
 
 Fields:
 
@@ -164,7 +175,7 @@ Notes:
 - You can set multiple `Filter Status Codes`, separated by commas (e.g. `200,304,403`).
 - If left empty, BurstUI uses `200`
 
-### `vhost`
+### `vhost` (Virtual Host Mode)
 
 Fields:
 
@@ -184,7 +195,7 @@ Notes:
 - You can set multiple `Exclude Status Codes`, separated by commas (e.g. `400,500`).
 - If left empty, BurstUI uses `400`
 
-### `dns`
+### `dns` (DNS Mode)
 
 Fields:
 
@@ -209,17 +220,6 @@ Notes:
 
 - You cannot filter status codes in `dns` mode
 - `Custom DNS Server` is optional
-
-## Controls
-
-- `↑ / ↓`: move between fields
-- `← / →` on `Mode`: switch mode
-- `→`: fill a field with its placeholder when empty
-- `Tab` / `Shift+Tab`: switch between form and result pane
-- `Enter` on `Browse Wordlist`: open the wordlist picker
-- `Enter` on `Start Scan`: run Gobuster
-- `Enter` on `Output Log File`: save logs after a scan completes
-- `ctrl+c`: quit
 
 ## Output Logs
 
