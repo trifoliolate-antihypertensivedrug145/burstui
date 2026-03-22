@@ -24,9 +24,9 @@ BurstUI provides a small TUI around common Gobuster workflows so you can switch 
 
 ## Requirements
 
-- 🐳 Docker
+- Docker
 
-OR
+*OR*
 
 - Go `1.26.1` or newer
 - Gobuster `3.8.2` or newer
@@ -64,6 +64,7 @@ cd burstui
 go mod tidy
 go build .
 ```
+*OR*
 #### Using Binary Releases
 
 Download binary releases from the [releases page](https://github.com/ctzisme/burstui/releases).
@@ -76,7 +77,7 @@ Install the recommended Gobuster version `v3.8.2`:
 go install github.com/OJ/gobuster/v3@v3.8.2
 ```
 
-OR
+*OR*
 
 Install the latest Gobuster release:
 
