@@ -1,6 +1,6 @@
 # BurstUI
 
-A terminal UI for Gobuster built with Bubble Tea and Lip Gloss.
+A Go terminal UI for Gobuster built with Bubble Tea and Lip Gloss.
 
 BurstUI provides a small TUI around common Gobuster workflows so you can switch modes, set options, run scans, and review live output without typing the full command each time.
 
